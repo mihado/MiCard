@@ -28,42 +28,47 @@ class MyApp extends StatelessWidget {
             fontSize: 20,
             letterSpacing: 2.5));
 
-    var phone = Container(
-        color: Colors.white,
-        padding: const EdgeInsets.all(10.0),
+    var phone = Card(
         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-        child: Row(children: <Widget>[
-          Icon(Icons.phone, color: Colors.teal.shade900),
-          const SizedBox(width: 10.0),
-          Text('+64 225 225 368',
+        child: ListTile(
+          leading: Icon(Icons.phone, color: Colors.teal.shade900),
+          title: Text('+64 225 225 368',
               style: TextStyle(
                   color: Colors.teal.shade900,
                   fontFamily: 'SourceSansPro',
-                  fontSize: 20))
-        ]));
+                  fontSize: 20)),
+        ));
 
-    var email = Container(
-        color: Colors.white,
-        padding: const EdgeInsets.all(10.0),
+    var email = Card(
         margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
-        child: Row(children: <Widget>[
-          Icon(Icons.email, color: Colors.teal.shade900),
-          const SizedBox(width: 10.0),
-          Text('mihado@minh.im',
+        child: ListTile(
+          leading: Icon(Icons.email, color: Colors.teal.shade900),
+          title: Text('mihado@minh.im',
               style: TextStyle(
                   color: Colors.teal.shade900,
                   fontFamily: 'SourceSansPro',
-                  fontSize: 20))
-        ]));
+                  fontSize: 20)),
+        ));
 
-    var bodyChildren = <Widget>[circleAvatar, name, title, phone, email];
+    var divider = SizedBox(
+        height: 20.0,
+        width: 150.0,
+        child: Divider(color: Colors.teal.shade100));
 
     return MaterialApp(
       home: Scaffold(
           backgroundColor: Colors.teal,
           body: SafeArea(
               child: Column(
-            children: bodyChildren,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              circleAvatar,
+              name,
+              title,
+              divider,
+              phone,
+              email
+            ],
           ))),
     );
   }
