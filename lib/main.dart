@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,6 +9,13 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // Also see for potential issue with iPad
+    // https://github.com/flutter/flutter/issues/27235
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     const circleAvatar = CircleAvatar(
       radius: 50.0,
       backgroundColor: Colors.red,
